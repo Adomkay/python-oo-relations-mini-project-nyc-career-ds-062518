@@ -80,7 +80,9 @@ class TestHasManyThroughMiniProj(unittest.TestCase):
     review_10 = Review(guest_1, recipe_4, 1, "It was more of a slap in the face")
 
     def test_guest_class_methods(self):
+        # import pdb; pdb.set_trace()
         self.assertItemsEqual(Guest.all(), [guest_1, guest_2, guest_3])
+        self.assertItemsEqual([guest.name for guest in Guest.all()], [guest_1.name, guest_2.name, guest_3.name])
         self.assertEqual(Guest.most_popular(), guest_1)
         self.assertEqual(Guest.toughest_critic(), guest_1)
         self.assertEqual(Guest.most_active_critic(), guest_1)
